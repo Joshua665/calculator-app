@@ -7,4 +7,8 @@ def index(request):
     return HttpResponse('Server Started')
 
 def calculatorapp(request):
-    return render(request, 'index.html')  
+    return render(request, 'index.html')
+
+def submitquery(request):
+    q = request.GET['query']
+    return HttpResponse(q)
