@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,7 +11,7 @@
 
     <title>Django Calculator App</title>
   </head>
-  <body>
+  <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Django Calculator App</a>
@@ -21,7 +22,10 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
              
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#instructions">Instructions</a>
               </li>
               
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -37,28 +41,67 @@
           </div>
         </div>
       </nav>
-      <div class="container-fluid">
+      <div class="container-fluid" style="margin-bottom: 40rem;">
           <div class="row">
               <div class="col-md-6" style="margin: 1rem auto 0 auto;">
+                <img class="img-fluid"  src="{% static 'logo.png' %}" >
                 <div class="card">
                     <div class="card-body">
-                        <form method="GET" action="#">
+                        <form method="GET" action="{% url 'submitquery' %}">
                             <div class="form-group">
                                 <input type="search" class="form-control" id = "query" name="query">
                             </div>
                             <br>
-                            <input type="submit" class="btn btn-primary">
-                            <input type = "reset" class="btn btn-primary"> 
+                            <div class="row">
+                              <div class="col-md-6">
+                                <input type="submit" class="btn btn-success" style="display: block; margin: 0 auto;">
+                              </div>
+                              <div class="col-md-6">
+                                <input type = "reset" class="btn btn-danger" style="display: block; margin: 0 auto;"> 
+                              </div>
+                            </div>
+                           
+                           
+                            
                         </form>
                     </div>
                 </div>
               </div>
           </div>
+          <div class="row">
+            <div class="col-md-6" style="margin:2rem auto 0 auto;">
+              <p class="display-4" id="about" name="about">
+                About
+              </p>
+              <hr>
+              <p class="lead" >
+                Our calculator app can perform mathematical operations.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6" style="margin:2rem auto 0 auto;">
+              <p class="display-4" id="instructions" name="instructions">
+                Instructions
+              </p>
+              <hr>
+              <ul class="list-group">
+                <li class="list-group-item">+ Addition</li>
+                <li class="list-group-item">- Subtraction</li>
+                <li class="list-group-item">/ Division</li>
+                <li class="list-group-item">* Multiplication</li>
+                <li class="list-group-item">// Floor Division</li>
+                <li class="list-group-item">() Parentheses</li>
+              </ul>
+            </div>
+          </div>
+          
       </div>
+     
       <div class="container-fluid">
           <div class="row">
-              <footer class="fixed-bottom" style="height: 130px; background-color: black;">
-                  <p style="color: white; text-align: center; margin-top: 2rem;">Footer</p>
+              <footer class="fixed-bottom" style="height: 60px; background-color: black;">
+                  <p style="color: white; text-align: center; margin-top: 2rem;">Thanks for Using!!</p>
               </footer>
           </div>
       </div>
