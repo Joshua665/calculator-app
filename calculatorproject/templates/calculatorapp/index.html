@@ -12,7 +12,7 @@
     <title>Django Calculator App</title>
   </head>
   <body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Django Calculator App</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +41,28 @@
           </div>
         </div>
       </nav>
-      <div class="container-fluid" style="margin-bottom: 40rem;">
+      <div class="container-fluid" style="margin-bottom: 40rem; margin-top: 5rem;">
+        <div class="row">
+          <div class="col-md-6" style="margin: 0 auto;">
+            {% if error %}
+            
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              
+              <strong>Error!!</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {% else %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>{{ans}}</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {% endif %}
+          </div>
+        </div>
           <div class="row">
               <div class="col-md-6" style="margin: 1rem auto 0 auto;">
                 <img class="img-fluid"  src="{% static 'logo.png' %}" >
@@ -92,6 +113,8 @@
                 <li class="list-group-item">* Multiplication</li>
                 <li class="list-group-item">// Floor Division</li>
                 <li class="list-group-item">() Parentheses</li>
+                <li class="list-group-item">** Power</li>
+                <li class="list-group-item">% mod</li>
               </ul>
             </div>
           </div>
